@@ -11,3 +11,5 @@ wheels/
 
 html
 .env
+logs
+run.sh
