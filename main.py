@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 import re
-import json
 import os
 from dotenv import load_dotenv
 import random
@@ -16,11 +15,6 @@ def fetch_html(url):
     resp.raise_for_status()            # 若 HTTP 回傳 4xx/5xx，則拋錯
     resp.encoding = 'utf-8'            # 明確指定編碼
     return resp.text
-
-def save_html(html, filename):
-    with open(filename, 'w', encoding='utf-8') as f:
-        f.write(html)
-    print(f"已將 HTML 存為 {filename}")
 
 def parse_module_to_json(html: str) -> dict:
     soup = BeautifulSoup(html, 'html.parser')
@@ -100,6 +94,5 @@ if __name__ == '__main__':
     url = 'https://utdormitory.utaipei.edu.tw/index.php'
     html = fetch_html(url)
     data = parse_module_to_json(html)
-    print(data["updateTime"])
     message = maid_notify(data["boy"]["undergradOld"], data['updateTime'])
     send_discord_message(message)
