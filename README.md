@@ -14,8 +14,8 @@
 1. **複製專案**
 
     ```bash
-    git clone https://github.com/your-username/your-repository-name.git
-    cd your-repository-name
+    git clone https://github.com/hungsean/dormitory.git
+    cd dormitory
     ```
 
 2. **安裝依賴**
